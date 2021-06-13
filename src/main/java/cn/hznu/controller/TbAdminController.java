@@ -7,6 +7,8 @@ import cn.hznu.mapper.TbStudentMapper;
 import cn.hznu.pojo.TbAdmin;
 import cn.hznu.pojo.TbClass;
 import cn.hznu.pojo.TbStudent;
+import cn.hznu.service.TbAdminService;
+import cn.hznu.service.TbClassService;
 import cn.hznu.util.ReturnResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,23 +28,30 @@ import java.util.Map;
 @RequestMapping("/tb-admin")
 public class TbAdminController {
     @Autowired
-    private TbClassMapper tbClassMapper;
+    private TbAdminService tbAdminService;
 
-    @Autowired
-    private TbStudentMapper tbStudentMapper;
+    //管理员登录
+    @PostMapping("/login")
+    public Map<String, Object> login(@RequestBody Map<String, Object> param) {
+        String adminId = (String) param.getOrDefault("adminid", null);
+        String aPassword = (String) param.getOrDefault("apassword", null);
+        if (adminId == null || aPassword == null) {
+            return ReturnResult.buildFailedResult(2, "登录失败，请检查传参");
+        }
+        return tbAdminService.login(adminId, aPassword);
+    }
 
     //班级查
     @GetMapping("/queryClassInfo")
     public Map<String, Object> queryClassInfo(@RequestBody Map<String, Object> param) {
-        List<Map<String, Object>> tbAdminList = tbClassMapper.selectMaps(null);
-        return ReturnResult.buildSuccessResult(tbAdminList.size(), tbAdminList);
+        String deptId = (String) param.getOrDefault("deptid", null);
+        return tbAdminService.queryClassInfoByDeptId(deptId);
     }
 
     //班级增
     @PostMapping("/addClassInfo")
     public Map<String, Object> addClassInfo(@RequestBody TbClass param) {
-        int len = tbClassMapper.insert(param);
-        return checkResult(len, "插入失败，请检查传参");
+        return tbAdminService.addClassInfo(param);
     }
 
     //班级删
@@ -51,29 +60,27 @@ public class TbAdminController {
         if (param.isEmpty() || !param.containsKey("classid")) {
             return ReturnResult.buildFailedResult("删除失败，请检查是否传classid");
         }
-        int len = tbClassMapper.deleteById(param.get("classid") + "");
-        return checkResult(len, "删除失败，无效classid");
+        return tbAdminService.removeClassInfo(param.get("classid") + "");
     }
 
     //班级更新
     @PostMapping("/modifyClassInfo")
     public Map<String, Object> modifyClassInfo(@RequestBody TbClass param) {
-        int len = tbClassMapper.updateById(param);
-        return checkResult(len, "更新失败，请检查传参");
+        return tbAdminService.modifyClassInfo(param);
     }
 
     //学生查
     @GetMapping("/queryStudentInfo")
     public Map<String, Object> queryStudentInfo(@RequestBody Map<String, Object> param) {
-        List<Map<String, Object>> tbStudentList = tbStudentMapper.selectMaps(null);
-        return ReturnResult.buildSuccessResult(tbStudentList.size(), tbStudentList);
+        String deptId = (String) param.getOrDefault("deptid", null);
+        String classId = (String) param.getOrDefault("classid", null);
+        return tbAdminService.queryStudentInfoByDeptIdAndClassId(deptId, classId);
     }
 
     //学生增
     @PostMapping("/addStudentInfo")
     public Map<String, Object> addStudentInfo(@RequestBody TbStudent param) {
-        int len = tbStudentMapper.insert(param);
-        return checkResult(len, "插入失败，请检查传参");
+        return tbAdminService.addStudentInfo(param);
     }
 
     //学生删
@@ -82,23 +89,13 @@ public class TbAdminController {
         if (param.isEmpty() || !param.containsKey("stuid")) {
             return ReturnResult.buildFailedResult("删除失败，请检查是否传stuid");
         }
-        int len = tbStudentMapper.deleteById(param.get("stuid") + "");
-        return checkResult(len, "删除失败，无效stuid");
+        return tbAdminService.removeStudentInfo(param.get("stuid") + "");
     }
 
     //学生更新
     @PostMapping("/modifyStudentInfo")
     public Map<String, Object> modifyStudentInfo(@RequestBody TbStudent param) {
-        int len = tbStudentMapper.updateById(param);
-        return checkResult(len, "更新失败，请检查传参");
-    }
-
-    //统一的错误处理（懒得写AOP了～）
-    private Map<String, Object> checkResult(int len, String msg) {
-        if (len == 0) {
-            return ReturnResult.buildFailedResult(msg);
-        }
-        return ReturnResult.buildSuccessResult(len, null);
+        return tbAdminService.modifyStudentInfo(param);
     }
 }
 

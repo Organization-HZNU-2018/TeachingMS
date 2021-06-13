@@ -30,6 +30,11 @@ public class ReturnResult {
         return convertToMap(res);
     }
 
+    public static Map<String, Object> buildFailedResult(int result, String info) {
+        ReturnResult res = new ReturnResult(result, info, null);
+        return convertToMap(res);
+    }
+
     private static Map<String, Object> convertToMap(ReturnResult res) {
         HashMap<String, Object> resMap = new HashMap<>();
         resMap.put("result", res.result);
