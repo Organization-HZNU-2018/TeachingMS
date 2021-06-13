@@ -35,6 +35,11 @@ public interface TbStudentService extends IService<TbStudent> {
     Map<String, Object> getCourseClassList(String stuid, String teachingyearname, String termid);
 
     /**
+     * 根据课程班id查询课程班具体信息
+     */
+    Map<String, Object> getCourseClass(String stuid, String courseclassid);
+
+    /**
      * 选修课程
      *
      * @param stuid         学号
@@ -51,4 +56,18 @@ public interface TbStudentService extends IService<TbStudent> {
      * @return 退选结果
      */
     Map<String, Object> withdrawCourseClass(String stuid, String courseclassid);
+
+
+    /**
+     * 查询当前学生当前学期的课程成绩列表
+     *
+     * @param teachingyearname 学年
+     * @param termid           学期，上下学期
+     */
+    Map<String, Object> getUserCourseGradeList(String stuid, String teachingyearname, String termid);
+
+    /**
+     * 根据课程班和学号查找课程成绩信息
+     */
+    Map<String, Object> getUserCourseGrade(String stuid, String courseclassid);
 }
