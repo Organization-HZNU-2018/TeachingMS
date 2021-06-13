@@ -1,0 +1,371 @@
+{
+	"info": {
+		"_postman_id": "df9fca51-a539-4f84-9e37-4aafd8bf1d3e",
+		"name": "TeachingMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "管理员登录",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"adminid\":\"admin\",\n    \"apassword\":\"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tb-admin/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tb-admin",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "管理员根据系id查询班级",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/tb-admin/queryClassInfo?deptid=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tb-admin",
+						"queryClassInfo"
+					],
+					"query": [
+						{
+							"key": "deptid",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "管理员编辑班级",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"classid\":\"116\",\n    \"classname\":\"test111班级\",\n    \"deptid\":\"02\",\n    \"teacherid\":\"T08003\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tb-admin/modifyClassInfo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tb-admin",
+						"modifyClassInfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "管理员添加班级",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"classid\":\"116\",\n    \"classname\":\"test111班级\",\n    \"deptid\":\"02\",\n    \"teacherid\":\"T08003\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tb-admin/addClassInfo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tb-admin",
+						"addClassInfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "管理员删除班级",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"classid\":\"116\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tb-admin/removeClassInfo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tb-admin",
+						"removeClassInfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "管理员根据系id和班级id查询学生",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tb-admin/queryStudentInfo?deptid=02&classid=040201",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tb-admin",
+						"queryStudentInfo"
+					],
+					"query": [
+						{
+							"key": "deptid",
+							"value": "02"
+						},
+						{
+							"key": "classid",
+							"value": "040201"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "管理员添加学生",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"stuname\":\"ch\",\n    \"deptid\":\"02\",\n    \"classid\":\"040201\",\n    \"enrollyear\":\"2018\",\n    \"gradyear\":\"2022\",\n    \"birthday\":\"1984-12-12\",\n    \"stuaddress\":\"街边\",\n    \"zipcode\":\"10086\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tb-admin/addStudentInfo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tb-admin",
+						"addStudentInfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "管理员编辑学生",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"stuid\": \"1403989893637967874\",\n    \"stuname\": \"cd\",\n    \"deptid\": \"02\",\n    \"classid\": \"040201\",\n    \"enrollyear\": \"2018\",\n    \"gradyear\": \"2022\",\n    \"birthday\": \"1984-12-12\",\n    \"stuaddress\": \"街边\",\n    \"zipcode\": \"10086\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tb-admin/modifyStudentInfo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tb-admin",
+						"modifyStudentInfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "管理员删除学生",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"stuid\": \"1403989893637967874\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tb-admin/removeStudentInfo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tb-admin",
+						"removeStudentInfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "教师登录",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"teacherid\":\"T02001\",\n    \"tpassword\":\"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tb-teacher/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tb-teacher",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "教师根据教学地点,教学时间,课程id查询学生成绩",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tb-teacher/queryGradeInfo?teachingplace=4%23102&teachingtime=3:3-4,5:3-4&courseid=C07001&teacherid=T07002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tb-teacher",
+						"queryGradeInfo"
+					],
+					"query": [
+						{
+							"key": "teachingplace",
+							"value": "4#102"
+						},
+						{
+							"key": "teachingtime",
+							"value": "3:3-4,5:3-4"
+						},
+						{
+							"key": "courseid",
+							"value": "C07001"
+						},
+						{
+							"key": "teacherid",
+							"value": "T07002"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "教师更新成绩",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"gradeseedid\": \"1\",\n    \"middlescore\": 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tb-teacher/modifyGradeInfo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tb-teacher",
+						"modifyGradeInfo"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

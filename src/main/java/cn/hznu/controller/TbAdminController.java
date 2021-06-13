@@ -43,8 +43,10 @@ public class TbAdminController {
 
     //班级查
     @GetMapping("/queryClassInfo")
-    public Map<String, Object> queryClassInfo(@RequestBody Map<String, Object> param) {
-        String deptId = (String) param.getOrDefault("deptid", null);
+    public Map<String, Object> queryClassInfo(@RequestParam("deptid") String deptId) {
+        if (deptId == null || deptId.isEmpty()) {
+            deptId = null;
+        }
         return tbAdminService.queryClassInfoByDeptId(deptId);
     }
 
@@ -71,9 +73,13 @@ public class TbAdminController {
 
     //学生查
     @GetMapping("/queryStudentInfo")
-    public Map<String, Object> queryStudentInfo(@RequestBody Map<String, Object> param) {
-        String deptId = (String) param.getOrDefault("deptid", null);
-        String classId = (String) param.getOrDefault("classid", null);
+    public Map<String, Object> queryStudentInfo(@RequestParam("deptid") String deptId, @RequestParam("classid") String classId) {
+        if (deptId == null || deptId.isEmpty()) {
+            deptId = null;
+        }
+        if (classId == null || classId.isEmpty()) {
+            classId = null;
+        }
         return tbAdminService.queryStudentInfoByDeptIdAndClassId(deptId, classId);
     }
 

@@ -18,6 +18,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static cn.hznu.util.CommonParam.checkResult;
+
 /**
  * <p>
  * 服务实现类
@@ -120,11 +122,5 @@ public class TbAdminServiceImpl extends ServiceImpl<TbAdminMapper, TbAdmin> impl
         return checkResult(len, "删除失败，无效stuid");
     }
 
-    //统一的错误处理（懒得写AOP了～）
-    private Map<String, Object> checkResult(int len, String msg) {
-        if (len == 0) {
-            return ReturnResult.buildFailedResult(msg);
-        }
-        return ReturnResult.buildSuccessResult(len, null);
-    }
+
 }
