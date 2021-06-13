@@ -1,28 +1,30 @@
 package cn.hznu.pojo;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author hznu
  * @since 2021-06-10
  */
 @Data
+@Builder
 @EqualsAndHashCode(callSuper = false)
 @TableName("TB_SelectCourse")
-@ApiModel(value="TbSelectcourse对象", description="")
+@ApiModel(value = "TbSelectcourse对象", description = "")
 public class TbSelectcourse implements Serializable {
 
     private static final long serialVersionUID = 1L;

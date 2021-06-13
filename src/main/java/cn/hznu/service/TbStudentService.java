@@ -16,14 +16,39 @@ import java.util.Map;
 public interface TbStudentService extends IService<TbStudent> {
     /**
      * 学生登录
-     * @param stuid 账号
-     * @param spassword 密码
-     * @return
-     *      result: 1 登录成功
-     *      result: 2 登录失败
      *
-     *      info: 具体描述
+     * @param stuid     账号
+     * @param spassword 密码
+     * @return result: 1 登录成功
+     * result: 2 登录失败
      */
     Map<String, Object> login(String stuid, String spassword);
 
+    /**
+     * 获取当前学期的课程班列表，包含当前登入学生是否选中
+     *
+     * @param stuid            学号
+     * @param teachingyearname 学年
+     * @param termid           学期，上下学期
+     * @return 数据列表
+     */
+    Map<String, Object> getCourseClassList(String stuid, String teachingyearname, String termid);
+
+    /**
+     * 选修课程
+     *
+     * @param stuid         学号
+     * @param courseclassid 课程班id
+     * @return 选修结果
+     */
+    Map<String, Object> electiveCourseClass(String stuid, String courseclassid);
+
+    /**
+     * 退选课程
+     *
+     * @param stuid         学号
+     * @param courseclassid 课程班id
+     * @return 退选结果
+     */
+    Map<String, Object> withdrawCourseClass(String stuid, String courseclassid);
 }
