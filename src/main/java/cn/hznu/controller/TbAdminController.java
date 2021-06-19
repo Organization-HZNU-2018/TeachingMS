@@ -44,6 +44,7 @@ public class TbAdminController {
     //班级查
     @GetMapping("/queryClassInfo")
     public Map<String, Object> queryClassInfo(@RequestParam("deptid") String deptId) {
+        System.out.println("deptId="+deptId);
         if (deptId == null || deptId.isEmpty()) {
             deptId = null;
         }

@@ -37,10 +37,18 @@ public interface TbTeacherService extends IService<TbTeacher> {
     Map<String, Object> queryStudentInfoByCondition(String teachingPlace, String teachingTime, String courseId, String teacherId);
 
     /**
+     * 更新成绩
+     *
+     * @param tbGrade 成绩信息
+     * @return 更新结果
+     */
+    Map<String, Object> modifyGradeInfo(TbGrade tbGrade);
+
+    /**
      * 录入成绩
      *
      * @param tbGrade 成绩信息
      * @return 添加结果
      */
-    Map<String, Object> modifyGradeInfo(TbGrade tbGrade);
+    Map<String, Object> addGradeInfo(TbGrade tbGrade);
 }

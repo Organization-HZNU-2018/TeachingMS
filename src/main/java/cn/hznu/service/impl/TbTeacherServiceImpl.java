@@ -76,4 +76,11 @@ public class TbTeacherServiceImpl extends ServiceImpl<TbTeacherMapper, TbTeacher
         int len = tbGradeMapper.updateById(tbGrade);
         return checkResult(len, "更新失败，请检查传参");
     }
+
+    @Override
+    @Transactional
+    public Map<String, Object> addGradeInfo(TbGrade tbGrade) {
+        int len = tbGradeMapper.insert(tbGrade);
+        return checkResult(len, "添加失败，请检查传参");
+    }
 }

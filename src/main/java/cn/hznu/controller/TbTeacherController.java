@@ -60,5 +60,11 @@ public class TbTeacherController {
     public Map<String, Object> modifyGradeInfo(@RequestBody TbGrade param) {
         return tbTeacherService.modifyGradeInfo(param);
     }
+
+    //成绩录入
+    @PostMapping("/addGradeInfo")
+    public Map<String, Object> addGradeInfo(@RequestBody TbGrade param) {
+        return tbTeacherService.addGradeInfo(param);
+    }
 }
 

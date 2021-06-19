@@ -20,8 +20,8 @@ import java.util.Map;
 @Repository
 public interface TbClassMapper extends BaseMapper<TbClass> {
     @Select("<script>" +
-            "select TB_Class.*,TB_Dept.`DeptName`,TB_Teacher.`TeacherName` FROM TB_Class natural join TB_Dept natural join TB_Teacher"
-            + "<if test='deptId!=null'>where TB_Class.DeptID=#{deptId}</if> order by TB_Class.ClassID"
+            "select * FROM TB_Class c left join TB_Dept d on c.DeptID = d.DeptID left join TB_Teacher t on c.TeacherID = t.TeacherID"
+            + "<if test='deptId!=null'>where c.DeptID=#{deptId}</if> order by c.ClassID"
             + "</script>")
     List<Map<String, Object>> getClassInfoByDeptId(@Param("deptId") String deptId);
 }

@@ -297,10 +297,14 @@ public class TbStudentServiceImpl extends ServiceImpl<TbStudentMapper, TbStudent
             tbGradeQueryWrapper.eq("CourseClassID", tbCourseclass.getCourseclassid());
             TbGrade tbGrade = tbGradeMapper.selectOne(tbGradeQueryWrapper);
 
+            if (tbGrade == null) {
+                mp.put("TotalScore", null);
+            } else {
+                mp.put("TotalScore", tbGrade.getTotalscore());
+            }
             /*mp.put("CommonScore", tbGrade.getCommonscore());
             mp.put("MiddleScore", tbGrade.getMiddlescore());
             mp.put("LastScore", tbGrade.getLastscore());*/
-            mp.put("TotalScore", tbGrade.getTotalscore());
 
             mps.add(mp);
         }

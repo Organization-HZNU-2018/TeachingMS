@@ -1,0 +1,17 @@
+2021-06-19 10:41:07.282  INFO 19276 --- [main] cn.hznu.TeachingMsApplication            : Starting TeachingMsApplication using Java 1.8.0_282 on qiuhandeMacBook-Pro.local with PID 19276 (/Users/qiuhan/IdeaProjects/TeachingMS/target/classes started by qiuhan in /Users/qiuhan/IdeaProjects/TeachingMS)
+2021-06-19 10:41:07.287  INFO 19276 --- [main] cn.hznu.TeachingMsApplication            : No active profile set, falling back to default profiles: default
+2021-06-19 10:41:08.052  INFO 19276 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-06-19 10:41:08.057  INFO 19276 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-19 10:41:08.057  INFO 19276 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-06-19 10:41:08.096  INFO 19276 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-19 10:41:08.097  INFO 19276 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 777 ms
+2021-06-19 10:41:08.757  INFO 19276 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-06-19 10:41:08.881  INFO 19276 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-19 10:41:08.881  INFO 19276 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-06-19 10:41:08.888  INFO 19276 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-06-19 10:41:08.900  INFO 19276 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-06-19 10:41:08.962  INFO 19276 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginUsingPOST_1
+2021-06-19 10:41:08.966  INFO 19276 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginUsingPOST_2
+2021-06-19 10:41:08.977  INFO 19276 --- [main] cn.hznu.TeachingMsApplication            : Started TeachingMsApplication in 1.982 seconds (JVM running for 2.328)
+2021-06-19 10:41:08.978  INFO 19276 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2021-06-19 10:41:08.978  INFO 19276 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC

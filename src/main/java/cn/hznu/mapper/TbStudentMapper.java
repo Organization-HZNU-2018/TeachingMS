@@ -22,11 +22,11 @@ import java.util.Map;
 public interface TbStudentMapper extends BaseMapper<TbStudent> {
 
     @Select("<script>" +
-            "select TB_Student.*,TB_Dept.`DeptName`,TB_Class.`ClassName` FROM TB_Student natural join TB_Dept natural join TB_Class"
+            "select * FROM TB_Student s left join TB_Dept d on s.DeptID = d.DeptID left join TB_Class c on s.ClassID=c.ClassID"
             + "<where>"
-            + "<if test='deptId!=null'>and TB_Student.DeptID=#{deptId}</if>"
-            + "<if test='classId!=null'>and TB_Student.ClassID=#{classId}</if>"
-            + "</where> order by TB_Student.StuID"
+            + "<if test='deptId!=null'>and s.DeptID=#{deptId}</if>"
+            + "<if test='classId!=null'>and s.ClassID=#{classId}</if>"
+            + "</where> order by s.StuID"
             + "</script>")
     List<Map<String, Object>> getClassInfoByDeptIdAndClassId(@Param("deptId") String deptId, @Param("classId") String classId);
 
