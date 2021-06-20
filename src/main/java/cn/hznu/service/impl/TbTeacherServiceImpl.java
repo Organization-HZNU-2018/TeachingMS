@@ -80,6 +80,8 @@ public class TbTeacherServiceImpl extends ServiceImpl<TbTeacherMapper, TbTeacher
     @Override
     @Transactional
     public Map<String, Object> addGradeInfo(TbGrade tbGrade) {
+        double tol = tbGrade.getCommonscore() * 0.2 + tbGrade.getMiddlescore() * 0.3 + tbGrade.getLastscore() * 0.5;
+        tbGrade.setTotalscore(tol);
         int len = tbGradeMapper.insert(tbGrade);
         return checkResult(len, "添加失败，请检查传参");
     }
